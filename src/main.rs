@@ -1,12 +1,11 @@
 #![allow(dead_code)]
+use server::Server;
+use std::env;
+use website_handler::WebsiteHandler;
 
 mod http;
 mod server;
 mod website_handler;
-
-use server::Server;
-use std::env;
-use website_handler::WebsiteHandler;
 
 fn main() {
     let default_path = format!("{}/public", env!("CARGO_MANIFEST_DIR"));
@@ -15,7 +14,3 @@ fn main() {
     let server = Server::new("127.0.0.1:8080".to_string());
     server.run(WebsiteHandler::new(public_path));
 }
-
-// finished initializing git repo
-// from test branch1
-// from test test/doc
